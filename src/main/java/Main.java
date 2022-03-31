@@ -1,7 +1,6 @@
 import Entity.*;
 import Service.*;
 
-import java.sql.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,25 +14,25 @@ public class Main {
         PrescriptionService prescriptionService = new PrescriptionService();
         ScheduleService scheduleService = new ScheduleService();
         Scanner scanner = new Scanner(System.in);
-        Admin admin = null;
-        Clinic clinic = null;
-        Doctor doctor = null;
-        Hospital hospital = null;
-        Patient patient = null;
-        Prescription prescription = null;
-        Schedule schedule = null;
-        String username = null;
-        String password = null;
-        String fullName = null;
+        Admin admin;
+        Clinic clinic;
+        Doctor doctor;
+        Hospital hospital;
+        Patient patient;
+        Prescription prescription;
+        Schedule schedule;
+        String username;
+        String password;
+        String fullName;
         String nationalCode = null;
-        String prescriptionTxt = null;
-        String name = null;
-        String address = null;
-        Integer whatToDo = 0;
-        Integer role = 0;
-        Long longId = 0L;
+        String prescriptionTxt;
+        String name;
+        String address;
+        int whatToDo = 0;
+        int role = 0;
+        long longId = 0L;
         String date;
-        Boolean loop = true;
+        boolean loop = true;
 
         System.out.println("1.Register \n2.Login");
         try {
