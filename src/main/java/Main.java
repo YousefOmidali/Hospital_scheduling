@@ -2,6 +2,7 @@ import Entity.*;
 import Service.*;
 
 import java.sql.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -35,10 +36,18 @@ public class Main {
         Boolean loop = true;
 
         System.out.println("1.Register \n2.Login");
-        whatToDo = scanner.nextInt();
+        try {
+            whatToDo = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong Input");
+        }
         if (whatToDo == 1) {
             System.out.println("what are you? \n1.Admin      2.Patient ");
-            role = scanner.nextInt();
+            try {
+                role = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input");
+            }
             if (role == 1) {
                 scanner.nextLine();
                 System.out.println("enter username: ");
@@ -56,14 +65,22 @@ public class Main {
                 System.out.println("enter fullName: ");
                 fullName = scanner.nextLine();
                 System.out.println("enter your nationalCode: ");
-                nationalCode = scanner.nextLine();
+                try {
+                    nationalCode = scanner.nextLine();
+                } catch (InputMismatchException e) {
+                    System.out.println("Wrong Input");
+                }
                 patient = new Patient(null, username, password, fullName, nationalCode);
                 patientService.save(patient);
             }
 
         } else if (whatToDo == 2) {
             System.out.println("what are you? \n1.Admin     2.Patient ");
-            role = scanner.nextInt();
+            try {
+                role = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input");
+            }
             if (role == 1) {
                 scanner.nextLine();
                 System.out.println("enter username: ");
@@ -88,7 +105,11 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("enter hospital id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 hospital = hospitalService.findById(longId);
                                 scanner.nextLine();
                                 System.out.println("enter name: ");
@@ -101,14 +122,22 @@ public class Main {
                                 System.out.println("enter doc full name: ");
                                 fullName = scanner.nextLine();
                                 System.out.println("enter clinic id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 clinic = clinicService.findById(longId);
                                 doctor = new Doctor(null, fullName, clinic);
                                 doctorService.save(doctor);
                                 break;
                             case 4:
                                 System.out.println("enter prescription id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 prescription = prescriptionService.findById(longId);
                                 scanner.nextLine();
                                 System.out.println("enter new prescription text: ");
@@ -118,7 +147,11 @@ public class Main {
                                 break;
                             case 5:
                                 System.out.println("enter schedule id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 System.out.println(scheduleService.findById(longId));
                                 break;
                             case 6:
@@ -159,15 +192,27 @@ public class Main {
                                 break;
                             case 5:
                                 System.out.println("enter doc id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 scheduleService.findByDocId(longId).forEach(System.out::println);
                                 break;
                             case 6:
                                 System.out.println("enter doc id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 doctor = doctorService.findById(longId);
                                 System.out.println("enter your id: ");
-                                longId = scanner.nextLong();
+                                try {
+                                    longId = scanner.nextLong();
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Wrong Input");
+                                }
                                 patient = patientService.findById(longId);
                                 System.out.println("enter schedule date: \t(example: 2022-03-01 14:00)---> yyyy-mm-dd hh ");
                                 scanner.nextLine();
