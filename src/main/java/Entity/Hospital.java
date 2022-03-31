@@ -17,4 +17,7 @@ public class Hospital {
     private String name;
     private String address;
 
+    public Hospital(Long id) {
+        this.id = id;
+    }
 }

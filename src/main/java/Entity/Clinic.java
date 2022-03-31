@@ -20,4 +20,8 @@ public class Clinic {
     private Hospital hospital;
 //    @OneToMany(mappedBy = "clinic")
 //    private List<Doctor> doctors;
+
+    public Clinic(Long id) {
+        this.id = id;
+    }
 }
