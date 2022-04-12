@@ -22,7 +22,7 @@ class DoctorRepositoryTest {
 
     @Test
     void save() {
-        doctor = new Doctor(null, "Mohammad Omidali", clinicRepository.findById(1L));
+        doctor = new Doctor(null, "Mohammad Omidali2", clinicRepository.findById(1L));
 
         doctorRepository.save(doctor);
 
@@ -31,7 +31,7 @@ class DoctorRepositoryTest {
     }
     @Test
     void update() {
-        doctor = new Doctor(null, "Mohammad Omidali", new Clinic(1L));
+        doctor = new Doctor(null, "Mohammad Omidali2", new Clinic(1L));
 
         doctorRepository.save(doctor);
         doctor.setFullName("Ali");
@@ -42,19 +42,18 @@ class DoctorRepositoryTest {
     }
     @Test
     void delete() {
-        doctor = new Doctor(null, "Mohammad Omidali", new Clinic(1L));
+        doctor = new Doctor(null, "Mohammad Omidali2", new Clinic(1L));
 
         doctorRepository.save(doctor);
         doctorRepository.delete(doctor);
 
         assertNull(doctorRepository.findById(doctor.getId()));
-        doctorRepository.delete(doctor);
     }
 
 
     @Test
     void findById() {
-        doctor = new Doctor(null, "Mohammad Omidali", new Clinic(1L));
+        doctor = new Doctor(null, "Mohammad Omidali2", new Clinic(1L));
 
         doctorRepository.save(doctor);
 

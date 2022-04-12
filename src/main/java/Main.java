@@ -131,6 +131,7 @@ public class Main {
                                 doctorService.save(doctor);
                                 break;
                             case 4:
+                                scanner.nextLine();
                                 System.out.println("enter prescription id: ");
                                 try {
                                     longId = scanner.nextLong();
@@ -186,10 +187,12 @@ public class Main {
                                 hospitalService.findAll().forEach(System.out::println);
                                 break;
                             case 4:
+                                System.out.println("enter hospital id: ");
                                 longId = scanner.nextLong();
                                 clinicService.findByHospitalId(longId).forEach(System.out::println);
                                 break;
                             case 5:
+                                scanner.nextLine();
                                 System.out.println("enter doc id: ");
                                 try {
                                     longId = scanner.nextLong();
@@ -199,6 +202,7 @@ public class Main {
                                 scheduleService.findByDocId(longId).forEach(System.out::println);
                                 break;
                             case 6:
+                                scanner.nextLine();
                                 System.out.println("enter doc id: ");
                                 try {
                                     longId = scanner.nextLong();

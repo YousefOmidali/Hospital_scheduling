@@ -21,6 +21,7 @@ public class AdminService {
     public Admin login(String username, String password) {
         return adminRepository.login(username, password);
     }
+
     public Admin findById(Long id) {
         return adminRepository.findById(id);
     }
